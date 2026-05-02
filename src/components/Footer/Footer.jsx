@@ -5,7 +5,6 @@ export default function Footer() {
   const year = new Date().getFullYear()
   return (
     <footer className="footer" role="contentinfo">
-      {/* Data disclaimer banner */}
       <div className="footer__disclaimer" role="note" aria-label="Data accuracy notice">
         <span className="footer__disclaimer-icon" aria-hidden="true">ℹ️</span>
         <p>
@@ -17,9 +16,9 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className="footer__inner container">
+      <div className="footer__main container">
         <div className="footer__brand">
-          <span className="footer__brand-icon" aria-hidden="true">🚇</span>
+          <div className="footer__brand-mark" aria-hidden="true">🚇</div>
           <p className="footer__brand-title">St Mary's Urban Mobility Hub</p>
           <p className="footer__brand-desc">Centralised transport information for St Mary's University, Twickenham.</p>
         </div>

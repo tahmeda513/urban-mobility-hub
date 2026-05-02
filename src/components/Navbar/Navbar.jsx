@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 import './Navbar.css'
 
 const navLinks = [
-  { to: '/',              label: 'Home',          end: true },
+  { to: '/',              label: 'Home',            end: true },
   { to: '/services',      label: 'Services' },
   { to: '/planner',       label: 'Journey Planner' },
   { to: '/accessibility', label: 'Accessibility' },
@@ -12,8 +12,8 @@ const navLinks = [
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false)
-  const [menuOpen, setMenuOpen]   = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -22,11 +22,7 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
@@ -36,11 +32,11 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`} role="banner">
       <div className="navbar__inner container">
         <Link to="/" className="navbar__brand" onClick={closeMenu} aria-label="St Mary's Urban Mobility Hub — Home">
-          <span className="navbar__brand-icon" aria-hidden="true">🚇</span>
-          <span className="navbar__brand-text">
-            <span className="navbar__brand-title">Mobility Hub</span>
+          <div className="navbar__brand-mark" aria-hidden="true">🚇</div>
+          <div className="navbar__brand-text">
+            <span className="navbar__brand-title">Urban Mobility Hub</span>
             <span className="navbar__brand-sub">St Mary's University</span>
-          </span>
+          </div>
         </Link>
 
         <nav className="navbar__links" aria-label="Main navigation">
@@ -65,9 +61,7 @@ export default function Navbar() {
           aria-controls="mobile-menu"
           aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
         >
-          <span />
-          <span />
-          <span />
+          <span /><span /><span />
         </button>
       </div>
 

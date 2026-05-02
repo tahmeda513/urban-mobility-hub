@@ -24,17 +24,17 @@ function LiveClock() {
 }
 
 const stats = [
-  { value: '6', label: 'Transport Modes' },
+  { value: '6',   label: 'Transport Modes' },
   { value: '20+', label: 'Bus Routes' },
-  { value: '12', label: 'Nearby Stations' },
-  { value: 'Live', label: 'Alert Updates' },
+  { value: '12',  label: 'Nearby Stations' },
+  { value: 'Live',label: 'Alert Updates' },
 ]
 
 const quickActions = [
-  { icon: '🗺️', label: 'Plan a Journey', to: '/planner', desc: 'Find the best route' },
-  { icon: '⚠️', label: 'Service Alerts', to: '/news', desc: 'Check disruptions' },
-  { icon: '♿', label: 'Accessibility', to: '/accessibility', desc: 'Step-free info' },
-  { icon: '📞', label: 'Contact Us', to: '/contact', desc: 'Speak to Mobility Office' },
+  { icon: '🗺️', label: 'Plan a Journey',  to: '/planner',       desc: 'Find the best route' },
+  { icon: '⚠️', label: 'Service Alerts',  to: '/news',          desc: 'Check disruptions' },
+  { icon: '♿', label: 'Accessibility',   to: '/accessibility', desc: 'Step-free info' },
+  { icon: '📞', label: 'Contact Us',      to: '/contact',       desc: 'Speak to Mobility Office' },
 ]
 
 export default function Home() {
@@ -46,23 +46,29 @@ export default function Home() {
 
   return (
     <div className="home">
+
       {/* Hero */}
       <section className="home-hero" aria-label="Welcome">
         <div className="home-hero__bg" aria-hidden="true">
-          <div className="home-hero__grid" />
-          <div className="home-hero__glow" />
+          <div className="home-hero__stripe home-hero__stripe--1" />
+          <div className="home-hero__stripe home-hero__stripe--2" />
+          <div className="home-hero__circle" />
         </div>
         <div className="container home-hero__content">
+          <div className="home-hero__eyebrow animate-fadeUp">
+            <span className="home-hero__dot" aria-hidden="true" />
+            Twickenham Campus Transport
+          </div>
           <LiveClock />
-          <h1 className="home-hero__title animate-fadeUp">
+          <h1 className="home-hero__title animate-fadeUp-1">
             St Mary's<br />
-            <span className="home-hero__title-accent">Urban Mobility Hub</span>
+            <em>Urban Mobility Hub</em>
           </h1>
-          <p className="home-hero__sub animate-fadeUp-1">
+          <p className="home-hero__sub animate-fadeUp-2">
             Your single destination for transport planning, live service updates,
             and accessibility support at St Mary's University, Twickenham.
           </p>
-          <div className="home-hero__actions animate-fadeUp-2">
+          <div className="home-hero__actions animate-fadeUp-3">
             <Link to="/planner" className="btn btn--primary">Plan a Journey →</Link>
             <Link to="/services" className="btn btn--secondary">Browse Services</Link>
           </div>
@@ -104,7 +110,10 @@ export default function Home() {
       {hasDashboardContent && (
         <section className="home-section home-section--dashboard" aria-labelledby="dashboard-heading">
           <div className="container">
-            <h2 id="dashboard-heading" className="home-section__title">Your Dashboard</h2>
+            <div className="home-section__header">
+              <h2 id="dashboard-heading" className="home-section__title">Your Dashboard</h2>
+              <div className="home-section__rule" aria-hidden="true" />
+            </div>
             <div className="home-dashboard__grid">
               {favouriteServices.length > 0 && (
                 <div className="home-dashboard__panel card">
@@ -126,7 +135,6 @@ export default function Home() {
                   <Link to="/services" className="home-dashboard__link">Manage services →</Link>
                 </div>
               )}
-
               {journeyHistory.length > 0 && (
                 <div className="home-dashboard__panel card">
                   <h3 className="home-dashboard__panel-title">
@@ -155,7 +163,10 @@ export default function Home() {
       {/* Quick Actions */}
       <section className="home-section" aria-labelledby="quickactions-heading">
         <div className="container">
-          <h2 id="quickactions-heading" className="home-section__title">Quick Actions</h2>
+          <div className="home-section__header">
+            <h2 id="quickactions-heading" className="home-section__title">Quick Actions</h2>
+            <div className="home-section__rule" aria-hidden="true" />
+          </div>
           <div className="home-quick__grid">
             {quickActions.map((a, i) => (
               <Link key={a.label} to={a.to} className={`home-quick__card animate-fadeUp-${i + 1}`}>

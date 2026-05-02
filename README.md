@@ -39,7 +39,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open [http://localhost:3074](http://localhost:3074) in your browser.
 
 ### Production build
 
@@ -97,7 +97,7 @@ Global state (user favourites and journey history) is managed with React Context
 Transport data is defined in plain JavaScript modules under `src/data/`. This decouples the UI from data sourcing. In a production version, these modules would be replaced with API calls to TfL's Open Data endpoints.
 
 ### No CSS framework
-The application uses a hand-authored design system built on CSS Custom Properties (variables). This gives full control over every visual detail and avoids the bundle overhead of utility-first frameworks.
+The application uses a hand-authored design system built on CSS Custom Properties (variables). This gives full control over every visual detail and avoids the bundle overhead of utility-first frameworks. The design system uses a warm editorial palette (cream backgrounds, coral red accent, deep indigo, forest green) paired with Playfair Display for headings, Lato for body text, and JetBrains Mono for time/data values.
 
 ## Pages and Features
 
@@ -120,8 +120,8 @@ Built to **WCAG 2.1 Level AA**:
 - `aria-live="polite"` on dynamic result regions
 - All form inputs have associated `<label>` elements
 - `aria-invalid` and `aria-describedby` on form fields with validation errors
-- Focus styles using `:focus-visible` with a 2px teal outline
-- Colour contrast exceeding 7:1 for primary text on dark background
+- Focus styles using `:focus-visible` with a 2px coral outline
+- Colour contrast exceeding 7:1 for primary text on light background
 - Status indicators use both colour and text simultaneously
 
 ## Version Control
